@@ -1,0 +1,49 @@
+RailSmart/
+├── backend/
+│   ├── src/
+│   │   ├── config/index.js           # Server & API configuration
+│   │   ├── db/
+│   │   │   ├── index.js              # better-sqlite3 database connector
+│   │   │   ├── schema.sql            # 8 core SQL tables with simulated tags
+│   │   │   └── seed.js               # Golden Corridor seed dataset
+│   │   ├── services/
+│   │   │   ├── railradar.js          # RailRadar API client + resilience cache
+│   │   │   ├── weather.js            # OpenWeatherMap client + cache
+│   │   │   ├── platformAllocator.js  # Heuristic LRU platform manager
+│   │   │   ├── simulator.js          # Live progression ticker & signal logic
+│   │   │   └── ruleEngineClient.js   # Python rule engine client with JS fallback
+│   │   ├── socket/socketHandler.js   # Real-time WebSocket broadcasting
+│   │   ├── routes/api.js             # REST API routes
+│   │   └── index.js                  # Express & Socket.io server
+│   └── package.json
+├── rule_engine/
+│   ├── app.py                        # FastAPI entry point
+│   ├── config/
+│   │   ├── ir_priority.py            # Indian Railways priority hierarchy
+│   │   └── weather_rules.py          # Visibility & heat speed restriction rules
+│   ├── engine/
+│   │   ├── conflict_detector.py      # Spatial & headway conflict detector
+│   │   ├── resolution_engine.py      # 3-way strategy generator
+│   │   ├── explainability.py         # Reasoning trace builder
+│   │   └── cascading_simulator.py    # Graph delay propagation model
+│   ├── test_engine.py                # Python test suite
+│   └── requirements.txt
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── Header.jsx            # Control room status & scenario selector
+│   │   │   ├── TrackNetwork.jsx      # Centerpiece interactive schematic
+│   │   │   ├── ConflictResolutionDrawer.jsx # 3-way strategy cards & traces
+│   │   │   ├── WhatIfSimulator.jsx   # Cascading delay propagation playground
+│   │   │   ├── PlatformAllocationBoard.jsx # Simulated platform bays
+│   │   │   ├── WeatherMonitor.jsx    # Real-time weather & speed restrictions
+│   │   │   └── AnalyticsPanel.jsx    # Trust score & synthetic historical trends
+│   │   ├── context/SocketContext.jsx # Real-time Socket.io state provider
+│   │   ├── styles/index.css          # Dark slate & Rail Orange design system
+│   │   ├── App.jsx                   # Main layout container
+│   │   └── main.jsx
+│   ├── index.html
+│   └── package.json
+├── scripts/
+│   └── run_all.sh                    # 1-click startup script
+└── README.md                         # Complete project documentation
